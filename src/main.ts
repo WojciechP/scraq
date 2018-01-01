@@ -22,9 +22,9 @@ import { runAll } from 'stack'
      upgraders++
      }
  	}
- 	if (miners < 10) {
-  Game.spawns['Spawn1'].spawnCreep([WORK, MOVE, CARRY], 'Miner' + Game.time, {memory: {stack: [{op: 3}]}})
-  }
   if (upgraders < 3) {
   Game.spawns['Spawn1'].spawnCreep([WORK, MOVE, CARRY], 'Upgrader' + Game.time, {memory: {stack: [{op: 4}]}})
     }
+ 	if (miners < 10) {
+  Game.spawns['Spawn1'].spawnCreep([WORK, MOVE, CARRY], 'Miner' + Game.time, {memory: {stack: [{op: 3}]}})
+  }
