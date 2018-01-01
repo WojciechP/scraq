@@ -8,3 +8,23 @@ import { runAll } from 'stack'
   }
 
   runAll()
+
+	let miners = 0
+	let upgraders = 0
+	for (const name in Game.creeps) {
+  	const crp = Game.creeps[name]
+  	const stack = (crp.memory as any).stack
+  	if (!stack && !stack.length) continue
+  	if (stack[0].op === 3) {
+    	miners++
+   }
+   if (stack[0].op === 4) {
+     upgraders++
+     }
+ 	}
+ 	if (miners < 10) {
+  Game.spawns['Spawn1'].spawnCreep([WORK, MOVE, CARRY], 'Miner' + Game.time, {memory: {stack: [{op: 3}]}})
+  }
+  if (upgraders < 3) {
+  Game.spawns['Spawn1'].spawnCreep([WORK, MOVE, CARRY], 'Upgrader' + Game.time, {memory: {stack: [{op: 4}]}})
+    }
